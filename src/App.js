@@ -1,23 +1,30 @@
-import logo from './logo.svg';
 import './App.css';
+import CalorieCalculator from './components/CalorieCalculator'
+import CalorieInput from './components/CalorieInput'
+import FoodList from './components/FoodList'
+import FoodPacked from './components/FoodPacked'
+import WeightCalculator from './components/WeightCalculator'
+import Backpack from './components/Backpack'
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>thru supply</h1>
+      <div className='grid-wrapper'>
+        <div>
+        <CalorieInput />
+        <FoodList />
+        </div>
+        <div>
+        <Backpack />
+        </div>
+        <div>
+        <CalorieCalculator />
+        <WeightCalculator />
+        <FoodPacked />
+        </div>
+      </div>
+
     </div>
   );
 }
