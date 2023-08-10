@@ -1,37 +1,53 @@
 import { useContext } from "react";
 import { PackContext } from "../packContext";
+import unitConverter from "./unitConverter";
 
 export default function WeightCalculator() {
 
   const { 
     packWeight,
     setPackWeight,
-    unit,
-    unitConversion,
-    setUnit
-
+    currentUnit,
+    setCurrentUnit,
+    packedFood
+    
     } = useContext(PackContext);
 
-   
+    const foodWeight = packedFood
+    .map((food) => food.weight)
+    .reduce((acc, grams) => acc + grams, 0)
 
+    function handleChange(e) {
+      const newUnit = e.target.value
+      setCurrentUnit(newUnit)
+      setPackWeight(unitConverter(currentUnit, packWeight, newUnit))
+    }
+
+    function totalWeight() {
+      
+      // const newUnit = 'grams'
+      // const totalPackWeight = (unitConverter(newUnit, foodWeight, currentUnit) + packWeight)
+      // return totalPackWeight
+      return (packWeight + foodWeight)
+
+    }
+
+   
   return (
     <div>
+      <h4 onChange={totalWeight}>your food weighs {foodWeight} grams</h4>
       <h3> whats your pack weight?</h3>
 
       <label>
         <input
           value={packWeight}
           type="text"
+          // onChange={handleChange}
           onChange={(e) => setPackWeight(e.target.value)}
         />
         <select
-          value={unit}
-          onChange={(e) => {
-            const newUnit = e.target.value;
-            const convertedWeight =(packWeight * unitConversion[newUnit]).toFixed(2)
-            setUnit(newUnit)
-            setPackWeight(convertedWeight)
-        }}
+          value={currentUnit}
+          onChange={handleChange}
         >
           <option value="kgs">kgs</option>
           <option value="grams">grams</option>
@@ -39,7 +55,7 @@ export default function WeightCalculator() {
           <option value="oz">oz</option>
         </select>
       </label>
-      <h3> pack weight with food </h3>
+      <h3> pack weight with food is {totalWeight()}</h3>
     </div>
   );
 }

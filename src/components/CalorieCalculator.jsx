@@ -22,10 +22,10 @@ export default function CalorieCalculator() {
     return(
         
         <div>
-           <h4> You need {calsNeeded.toLocaleString()} calories </h4>
-           <h4> You have {calsTotal.toLocaleString()} calories </h4>
-           <h4>You still need {calsRemain.toLocaleString()} calories</h4>
-           <h4>your food weighs this much</h4>
+           <h3> You need {calsNeeded.toLocaleString()} calories </h3>
+           <h3> You have {calsTotal.toLocaleString()} calories </h3>
+           <h3>You still need {calsRemain.toLocaleString()} calories</h3>
+           
 
         </div>
     )

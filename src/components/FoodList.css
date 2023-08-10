@@ -1,0 +1,8 @@
+.food-item:hover {
+    font-weight: bold; 
+    cursor: pointer;
+}
+.food-item {
+    font-size-adjust: inherit;
+
+}
