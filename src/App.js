@@ -4,19 +4,20 @@ import CalorieInput from './components/CalorieInput'
 import FoodList from './components/FoodList'
 import FoodPacked from './components/FoodPacked'
 import WeightCalculator from './components/WeightCalculator'
-import Backpack from './components/Backpack'
+import Header from './components/Header';
+import Foodbag from './components/Foodbag';
 
 function App() {
   return (
     <div className="App">
-      <h1>thru supply</h1>
+        <Header />
       <div className='grid-wrapper'>
         <div>
         <CalorieInput />
         <FoodList />
         </div>
         <div>
-        <Backpack />
+        <Foodbag />
         </div>
         <div>
         <CalorieCalculator />

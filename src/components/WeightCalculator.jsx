@@ -7,10 +7,12 @@ export default function WeightCalculator() {
     packWeight,
     setPackWeight,
     unit,
-    setUnit,
-    unitConversion
+    unitConversion,
+    setUnit
 
     } = useContext(PackContext);
+
+   
 
   return (
     <div>
@@ -18,17 +20,23 @@ export default function WeightCalculator() {
 
       <label>
         <input
-          value={(packWeight * unitConversion[unit]).toFixed(2)}
-          type="number"
-          onChange={(e) =>
-            setPackWeight(e.target.value / unitConversion[unit])
-          }
+          value={packWeight}
+          type="text"
+          onChange={(e) => setPackWeight(e.target.value)}
         />
-        <select value={unit} onChange={(e) => setUnit(e.target.value)}>
-          <option value="grams">Grams</option>
-          <option value="kgs">Kilograms</option>
-          <option value="oz">Ounces</option>
-          <option value="lbs">Pounds</option>
+        <select
+          value={unit}
+          onChange={(e) => {
+            const newUnit = e.target.value;
+            const convertedWeight =(packWeight * unitConversion[newUnit]).toFixed(2)
+            setUnit(newUnit)
+            setPackWeight(convertedWeight)
+        }}
+        >
+          <option value="kgs">kgs</option>
+          <option value="grams">grams</option>
+          <option value="lbs">lbs</option>
+          <option value="oz">oz</option>
         </select>
       </label>
       <h3> pack weight with food </h3>

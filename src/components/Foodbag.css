@@ -1,0 +1,6 @@
+.food-bag-img {
+    max-width: 600px;
+    /* transform-origin: bottom left; */
+   transform: rotate(-15deg)
+
+  }

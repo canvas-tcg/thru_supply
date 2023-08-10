@@ -4,25 +4,21 @@ export const PackContext = createContext()
 
 export function PackProvider (props) {
     const [packedFood, setPackedFood] = useState([])
-    // const [qty, setQty] = useState(0)
     const [days, setDays] = useState(0);
     const [cals, setCals] = useState(0);
-    const [packWeight, setPackWeight] = useState(0);
-    const [unit, setUnit] = useState('kgs')
+    const [packWeight, setPackWeight] = useState('0');
+    const [unit, setUnit] = useState()
 
     const unitConversion = {
       kgs: 1.00,
       grams: 1000.00,
-      oz: 35.27,
       lbs: 2.20462,
+      oz: 35.27,
     }
 
     function add(food){
         setPackedFood((packedFood) => [...packedFood, food])
     }
-  //   function add(food){
-  //     setPackedFood((packedFood) => [...packedFood, {...food, qty: 1}])
-  // }
     
     function remove(targetFood, targetIdx) {
       setPackedFood(packedFood => {
@@ -31,7 +27,6 @@ export function PackProvider (props) {
     })
   }
     useEffect(() => {
-        console.log(packedFood);
       }, [packedFood]);
 
     function changeDays(days){
@@ -41,22 +36,27 @@ export function PackProvider (props) {
       setCals((cals))
     }
 
-    function setQuantity(foodName, newQty) {
-      console.log(foodName, newQty)
-      // console.log(typeof(newQty));
-      setPackedFood((packedFood) => 
-      
-      packedFood.map((food) =>
-      food.name === foodName? {...food, qty: newQty } : food
-      )
-      )
-      console.log(packedFood);
-      // setQty(packedFood.qty)
+    function reduceByOne(name) {
+      const indexOfFood = (packedFood.findIndex((food) => food.name === name))
+      const updatedFood = [...packedFood.slice(0, indexOfFood), ...packedFood.slice(indexOfFood + 1)];
+      setPackedFood(updatedFood)
     }
 
-    // function changePackWeight(packWeight){
-    //   setPackWeight((packWeight))
-    //   console.log(packWeight);
+    function reduceByAll(name) {
+      const updatedFood = packedFood.filter((food) => food.name !== name)
+      setPackedFood(updatedFood)
+    }
+
+    function changePackWeight(e){
+      const weight = e.target.value
+      setPackWeight(weight)
+      console.log(weight);
+    }
+    // function changeUnit(e) {
+    //   const newUnit = e.target.value;
+    //   const convertedWeight = (packWeight * unitConversion[newUnit]).toFixed(2);
+    //   setUnit(newUnit);
+    //   setPackWeight(convertedWeight);
     // }
 
       const value = {
@@ -72,9 +72,11 @@ export function PackProvider (props) {
         unit,
         setUnit,
         unitConversion,
-        setQuantity,
-        // qty,
-        // setQty
+        reduceByOne,
+        reduceByAll,
+        changePackWeight,
+        // changeUnit
+        
       }
 
       return (
