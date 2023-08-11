@@ -41,7 +41,7 @@ export default function FoodList() {
 
   const handleItemDropped = (food) => {
     console.log('item dropped into bag')
-    add(food)
+    // add(food)
 
   }
 

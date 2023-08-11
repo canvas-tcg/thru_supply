@@ -7,7 +7,8 @@ export default function unitConverter(unit, weight, newUnit) {
         oz: 35.27,
       }
       let newWeight = weight/ unitConversion[unit]
-      return (newWeight * unitConversion[newUnit]).toFixed(2)
+      return (newWeight * unitConversion[newUnit])
+      // .toFixed(2)
  
     }
 

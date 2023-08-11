@@ -8,6 +8,9 @@ export function PackProvider (props) {
     const [cals, setCals] = useState(0);
     const [packWeight, setPackWeight] = useState('0');
     const [currentUnit, setCurrentUnit] = useState('kgs')
+    const [currentFoodUnit, setCurrentFoodUnit] = useState('grams')
+    const [foodWeight, setFoodWeight] = useState('0')
+    const [foodWeightInUnit, setFoodWeightInUnit] = useState('0')
 
     const unitConversion = {
       kgs: 1.00,
@@ -75,7 +78,12 @@ export function PackProvider (props) {
         reduceByOne,
         reduceByAll,
         changePackWeight,
-        // changeUnit
+        currentFoodUnit,
+        setCurrentFoodUnit,
+        foodWeight,
+        setFoodWeight,
+        foodWeightInUnit, setFoodWeightInUnit
+        
         
       }
 

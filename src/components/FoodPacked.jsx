@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { PackContext } from "../packContext";
+import './FoodPacked.css'
 
 export default function FoodPacked() {
 

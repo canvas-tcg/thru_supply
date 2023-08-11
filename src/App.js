@@ -1,5 +1,4 @@
 import './App.css';
-import { DragDropContext, Droppable } from 'react-beautiful-dnd';
 import CalorieCalculator from './components/CalorieCalculator'
 import CalorieInput from './components/CalorieInput'
 import FoodList from './components/FoodList'

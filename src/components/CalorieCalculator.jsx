@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { PackContext } from "../packContext";
+import './CalorieCalculator.css'
 
 
 export default function CalorieCalculator() {
