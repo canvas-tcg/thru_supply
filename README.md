@@ -29,4 +29,4 @@ React, JavaScript, CSS.
 
 Planned enhancements are to incorporate an API to search for more grocery items, incorporate a database to users can save their favourite items, and include a calorie calculator where users can input certain details including pack weight, hiking speed, distance, and incline to get a rough estimate of the number of calories required for them.
 
-(c) mimternet 2023
+&copy; mimternet 2023
